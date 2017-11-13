@@ -1,4 +1,4 @@
-package yizhilu.xiangyao.aopdemo.Aspect;
+package yizhilu.xiangyao.aopdemo.aspect;
 
 import android.util.Log;
 
@@ -22,7 +22,7 @@ public class LogAspect {
      * 分别表示在目标方法执行之前、执行后和完全替代目标方法执行的代码。 除了在方法中注入代码，
      * 也可能会对代码做其他修改，比如在一个class中增加字段或者接口。
      * */
-    @Around("onLogMethod()")
+    @Around("execution(!synthetic * *(..)) && onLogMethod()")
     public Object haha(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         return logMethod(proceedingJoinPoint);
     }
