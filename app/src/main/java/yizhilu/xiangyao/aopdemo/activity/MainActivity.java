@@ -29,21 +29,21 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     @ViewInjet(viewId = R.id.button)
     Button button;
+    int userId = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ViewInject.inject(this);
-        haha("当你看到这句话userId 是不为0的");
+//        haha("当你看到这句话userId 是不为0的");
 
 
     }
 
     @LogUtils
-    @CheckLogin(userId = 10)
+    @CheckLogin(userId = 0)
     public void haha(String xiangyao) {
-
         textView.setText(xiangyao);
     }
 
@@ -54,12 +54,13 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button)
     public void clickBtnInvoked(View view) {
 
-        textView.setText(button.getText());
-        Log.i("xiangyao", "333333333333333333333333");
+//        textView.setText(button.getText());
+//        Log.i("xiangyao", "333333333333333333333333");
     }
 
     @OnClick(R.id.button)
     public void onClickc(View view) {
+        haha("");
         Log.i("xiangyao", "222222222222222222222");
     }
 }

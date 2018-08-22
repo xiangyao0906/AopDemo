@@ -1,6 +1,8 @@
 package yizhilu.xiangyao.aopdemo.aspect;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -40,9 +42,8 @@ public class CheckLoginAspect {
         CheckLogin annotation = method.getAnnotation(CheckLogin.class);
         int userId = annotation.userId();
 
-
         if (userId == 0) {
-            Log.i("xiangyao", "未登录");
+            Toast.makeText((Context) proceedingJoinPoint.getTarget(),"mother fuck 困扰了我 好久,终于偶然间看到解决办法了",1).show();
         } else {
             result = proceedingJoinPoint.proceed();
         }
